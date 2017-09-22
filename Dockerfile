@@ -1,10 +1,8 @@
-FROM FROM java:6b38-jdk
+FROM java:6b38-jdk
 MAINTAINER lucasisrael <mcluck.ti@gmail.com>
 
 ENV JBOSS_HOME /opt/sicat/app
 ENV SICAT_HOME /opt/sicat/app
-
-RUN mkdir /opt
 
 COPY sicat /opt/sicat
 
