@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Logging System Configuration                                         -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<logging xmlns="urn:jboss:logging:6.0" xmlns:b="urn:jboss:bean-deployer:2.0">
+
+   <!-- ================================= -->
+   <!-- Preserve messages in a local file -->
+   <!-- ================================= -->
+
+   <!-- A time/date based rolling handler -->
+
+   <periodic-rotating-file-handler
+         file-name="${jboss.server.log.dir}/server.log"
+         name="FILE"
+         autoflush="true"
+         append="true"
+         suffix=".yyyy-MM-dd">  <!-- To roll over at the top of each hour, use ".yyyy-MM-dd-HH" instead -->
+
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <formatter>
+         <!-- To revert back to simple stack traces without JAR versions, change "%E" to "%e" below. -->
+         <!-- Uncomment this to get the class name in the log as well as the category
+         <pattern-formatter pattern="%d %-5p [%c] %C{1} (%t) %s%E%n"/>
+         -->
+         <!-- Uncomment this to log without the class name in the log -->
+         <pattern-formatter pattern="%d %-5p [%c] (%t) %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler
+         file-name="${jboss.server.log.dir}/CORRECAO_AUTO.log"
+         name="CORRECAO"
+         autoflush="true"
+         append="true"
+         suffix="yyyyMMdd">  <!-- To roll over at the top of each hour, use ".yyyy-MM-dd-HH" instead -->
+
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <formatter>
+         <!-- To revert back to simple stack traces without JAR versions, change "%E" to "%e" below. -->
+         <!-- Uncomment this to get the class name in the log as well as the category
+         <pattern-formatter pattern="%d %-5p [%c] %C{1} (%t) %s%E%n"/>
+         -->
+         <!-- Uncomment this to log without the class name in the log -->
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/DECLARACAO.log" name="DECLARACAO" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/CORRECAOTRANSACAO.log" name="CORRECAOTRANSACAO" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/TRANSACAO.log" name="TRANSACAO" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+     
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/R1109.log" name="R1109" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/RELATORIOS.log" name="RELATORIOS" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/NEVADA.log" name="NEVADA" autoflush="true" append="true" suffix="yyyyMMdd"> 
+      <error-manager>
+         <only-once/>
+      </error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{dd/MM/yyyy HH:mm:ss,SSS} %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <logger category="NEVADA">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="NEVADA"/>
+		</handlers>
+   </logger>
+
+   <!-- ============================== -->
+   <!-- Append messages to the console -->
+   <!-- ============================== -->
+
+   <console-handler name="CONSOLE" autoflush="true" target="System.out">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <level name="INFO"/>
+
+      <formatter>
+         <!-- <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/> -->
+		 <pattern-formatter pattern="%d{dd/MM/yyyy HH:mm:ss} %5p [%c] - %m%n"/>
+      </formatter>
+   </console-handler>
+   
+   <!-- <log4j-appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<error-manager>
+			<only-once/>
+		</error-manager>
+	
+		<level name="INFO"/>
+		<formatter>
+			<pattern-formatter pattern="%d{dd.MM.yyyy HH:mm:ss} %5p (%c) %s%E%n"/>
+		</formatter>
+   </log4j-appender> -->
+   
+   <!--
+   <log4j-appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<error-manager>
+			<only-once/>
+		</error-manager>
+	
+		<level name="INFO"/>
+		
+		<formatter>
+			<pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+		</formatter>
+   </log4j-appender>
+   
+	<log4j-appender name="Log4jAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<error-manager>
+		<only-once/>
+		</error-manager>
+
+		<level name="DEBUG"/>
+
+		<properties>
+			<property name="file">${jboss.server.log.dir}/log4j.log</property>
+			<property name="append">true</property>
+			<property name="datePattern">.yyyy-MM-dd</property>
+		</properties>
+		<formatter>
+			<pattern-formatter pattern="%d %-5p [%c] %m%n"/>
+		</formatter>
+	</log4j-appender> -->
+
+   <!-- ====================== -->
+   <!-- More Appender examples -->
+   <!-- ====================== -->
+
+
+   <!-- Buffer events and log them asynchronously
+
+   <async-handler name="ASYNC">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <sub-handlers>
+         <handler-ref name="FILE"/>
+         <handler-ref name="CONSOLE"/>
+         <handler-ref name="SMTP"/>
+      </sub-handlers>
+   </async-handler>
+   -->
+
+   <!-- EMail events to an administrator
+
+   <log4j-appender name="SMTP" class="org.apache.log4j.net.SMTPAppender">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <level name="ERROR"/>
+
+      <properties>
+         <property name="to">admin@myhost.domain.com</property>
+         <property name="from">nobody@myhost.domain.com</property>
+         <property name="subject">JBoss Sever Errors</property>
+         <property name="SMTPHost">localhost</property>
+         <property name="bufferSize">10</property>
+      </properties>
+
+      <formatter>
+         <pattern-formatter pattern="%d %-5p [%c] (%t) %m%n"/>
+      </formatter>
+   </log4j-appender>
+   -->
+
+   <!-- Syslog events
+
+   <log4j-appender name="SYSLOG" class="org.apache.log4j.net.SyslogAppender">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <properties>
+         <property name="facility">LOCAL7</property>
+         <property name="facilityPrinting">true</property>
+         <property name="syslogHost">localhost</property>
+      </properties>
+
+      <formatter>
+         <pattern-formatter pattern="[%d,%c{1}] %m%n"/>
+      </formatter>
+   </log4j-appender>
+   -->
+
+   <!-- Log events to JMS (requires a topic to be created)
+
+   <log4j-appender name="JMS" class="org.apache.log4j.net.JMSAppender">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <level name="ERROR"/>
+
+      <properties>
+         <property name="topicConnectionFactoryBindingName">
+            --><!-- Use injection so that an implicit dependency is formed - TODO: get the correct property name --><!--
+            <b:inject bean="myTopicBiding" property="name"/>
+         </property>
+         <property name="topicBindingName">topic/MyErrorsTopic</property>
+      </properties>
+   </log4j-appender>
+   -->
+
+   <!-- Log events through SNMP
+
+   <log4j-appender name="TRAP_LOG" class="org.apache.log4j.ext.SNMPTrapAppender">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <level name="DEBUG"/>
+
+      <properties>
+         <property name="implementationClassName">org.apache.log4j.ext.JoeSNMPTrapSender</property>
+         <property name="managementHost">127.0.0.1</property>
+         <property name="managementHostTrapListenPort">162</property>
+         <property name="enterpriseOID">1.3.6.1.4.1.24.0</property>
+         <property name="localIPAddress">127.0.0.1</property>
+         <property name="localTrapSendPort">161</property>
+         <property name="genericTrapType">6</property>
+         <property name="specificTrapType">12345678</property>
+         <property name="communityString">public</property>
+         <property name="forwardStackTraceWithTrap">true</property>
+         <property name="applicationTrapOID">1.3.6.1.4.1.24.12.10.22.64</property>
+      </properties>
+      <formatter>
+         <pattern-formatter pattern="%d,%p,[%t],[%c],%m%n"/>
+      </formatter>
+   </log4j-appender>
+   -->
+
+   <!-- Emit events as JMX notifications
+
+   <log4j-appender name="JMX" class="org.jboss.monitor.services.JMXNotificationAppender">
+      <error-manager>
+         <only-once/>
+      </error-manager>
+
+      <level name="WARN"/>
+
+      <properties>
+         <property name="objectName">jboss.system:service=Logging,type=JMXNotificationAppender</property>
+      </properties>
+
+      <formatter>
+         <pattern-formatter pattern="%d %-5p [%c] %m"/>
+      </formatter>
+   </log4j-appender>
+   -->
+
+   <!-- =============================================== -->
+   <!-- Limit categories                                -->
+   <!-- if enabling "trace" at root logger level,       -->
+   <!-- use limit category settings to disable trace    -->
+   <!-- for packages that you don't want to trace       -->
+   <!-- =============================================== -->
+
+   
+   <!-- Limit the org.apache category to INFO as its DEBUG is verbose -->
+   <logger category="org.apache">
+      <level name="INFO"/>
+   </logger>
+      
+   <!-- Limit the jacorb category to WARN as its INFO is verbose -->
+   <logger category="jacorb">
+      <level name="WARN"/>
+   </logger>
+  
+   
+   <!-- Limit JSF to INFO as its FINE is verbose -->
+   <logger category="javax.enterprise.resource.webcontainer.jsf">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the org.jgroups category to WARN as its INFO is verbose -->
+   <logger category="org.jgroups">
+      <level name="WARN"/>
+   </logger>
+
+   <!-- Limit the org.quartz category to INFO as its DEBUG is verbose -->
+   <logger category="org.quartz">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the com.sun category to INFO as its FINE is verbose -->
+   <logger category="com.sun">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the sun category to INFO as its FINE is verbose -->
+   <logger category="sun">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the javax.xml.bind category to INFO as its FINE is verbose -->
+   <logger category="javax.xml.bind">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the springframework category to WARN-->
+   <logger category="org.springframework">
+      <level name="WARN"/>
+   </logger>
+
+   <!-- Limit Arjuna transaction manager -->
+   <logger category="com.arjuna.ats">
+     <level name="INFO" />
+   </logger>
+   
+   <!-- Limit the JSR77 categories -->
+   <logger category="org.jboss.management">
+      <level name="INFO"/>
+   </logger>
+
+   <!-- Limit the verbose facelets compiler -->
+   <!-- Also suppress error with legacy facelets (JBAS-7600) -->
+   <logger category="facelets.compiler">
+      <level name="WARN"/>
+      <filter>
+         <not>
+            <match pattern="Error\sLoading\sLibrary.*jsf-libs/jsf-impl"/>
+         </not>
+      </filter>
+   </logger>
+   
+   <!-- Limit the org.jboss.serial (jboss-serialization) to INFO as its DEBUG is verbose -->
+   <logger category="org.jboss.serial">
+      <level name="INFO"/>
+   </logger>
+
+    <!-- Reduce org.mc4j stuff in the logs -->
+   <logger category="org.mc4j">
+      <level name="WARN"/>
+   </logger>
+   
+   
+   <logger category="br.com.compsisnet.xp.sga.model.transferobject.declaracao">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="DECLARACAO"/>
+		</handlers>
+   </logger>
+   
+   <logger category="br.com.compsisnet.xp.sgap.controller.struts.transacao.action.CorrecaoTransacaoAction">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="CORRECAOTRANSACAO"/>
+		</handlers>
+   </logger>
+   
+   <logger category="br.com.compsisnet.xp.sgap.model.business.transacao.facade.CorrecaoTransacaoFacadeBean">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="CORRECAOTRANSACAO"/>
+		</handlers>
+   </logger>
+   
+   <logger category="br.com.compsisnet.xp.sgap.model.business.transacao.facade.correcao.MainTratamentoCorrecao">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="CORRECAOTRANSACAO"/>
+		</handlers>
+   </logger>
+   
+   <logger category="net.sf">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="RELATORIOS"/>
+		</handlers>
+   </logger>
+   
+   <logger category="br.com.compsisnet.xp.sgap.model.transferobject.transacao">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="CORRECAO"/>
+		</handlers>
+   </logger>
+   
+   <logger category="br.com.compsisnet.xp.sgap.model.business.transacao.facade.ProcessadorMensagemFacadeBean">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="TRANSACAO"/>
+		</handlers>
+   </logger>
+   
+   <!-- This is a temporary workaround for https://jira.jboss.org/jira/browse/EMBJOPR-280 and
+        should be removed once that bug if fixed in the bundled admin-console war. -->
+   <logger category="org.rhq.plugins.jbossas5.ApplicationServerComponent">
+      <level name="FATAL"/>
+   </logger>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   <!-- INTEROP -->
+   <!-- To roll over at the top of each hour, use ".yyyy-MM-dd-HH" instead -->
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/INTEROPTASKS.log" name="INTEROPTASKS" autoflush="true" append="true" suffix="yyyyMMdd"> 
+	  <error-manager><only-once/></error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   <periodic-rotating-file-handler file-name="${jboss.server.log.dir}/SECURITY.log" name="SECURITY" autoflush="true" append="true" suffix="yyyyMMdd"> 
+	  <error-manager><only-once/></error-manager>
+      <formatter>
+         <pattern-formatter pattern="%d{HH:mm:ss,SSS} %-5p [%c] %s%E%n"/>
+      </formatter>
+   </periodic-rotating-file-handler>
+   
+   
+   <logger category="com.compsis.interop.core.business.tasks">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="INTEROPTASKS"/>
+		</handlers>
+   </logger>
+   
+   <logger category="org.springframework.security">
+		<level name="INFO"/>
+		<handlers>
+			<handler-ref name="SECURITY"/>
+		</handlers>
+   </logger>
+   
+	<logger category="org.hibernate.engine.jdbc.internal.JdbcResourceRegistryImpl">
+		<level name="OFF"/>
+		<handlers>
+			<handler-ref name="TRANSACAO"/>
+		</handlers>
+   </logger>
+   
+   
+	<logger category="R1109">
+		<level name="DEBUG"/>
+		<handlers>
+			<handler-ref name="R1109"/>
+		</handlers>
+   </logger>
+   
+   
+   
+   
+   <!-- ======================= -->
+   <!-- Setup the Root category -->
+   <!-- ======================= -->
+   <root-logger>
+      <!-- Set the root logger priority via a system property, with a default value. -->
+      <level name="${jboss.server.log.threshold:INFO}"/>
+      <handlers>
+         <!-- <handler-ref name="SECURITY"/> -->
+		 <!-- <handler-ref name="FILE"/> -->
+		 <!-- <handler-ref name="INTEROPTASKS"/> -->
+      </handlers>
+   </root-logger>
+
+</logging>

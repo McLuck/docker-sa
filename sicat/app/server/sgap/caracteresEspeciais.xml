@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Compsis>
+	<caracteresEspeciais>
+		<caracter valor="b" descricao="Imprime uma linha em branco. Neutraliza qualquer outro comando configurado na linha de configuração que estiver." />
+		<caracter valor="B" descricao="Imprime o nome da operadora do cartão." />
+		<caracter valor="c" descricao="Imprime a categoria classificada em um recibo ou voucher." />		
+		<caracter valor="d" descricao="Imprime a categoria detectada em um voucher. Não tem função na impressão de um recibo." />
+		<caracter valor="D" descricao="Imprime a data da impressão do recibo ou voucher." />
+		<caracter valor="e" descricao="Imprime o tipo do isento." />		
+		<caracter valor="E" descricao="Indica que esta linha de configuração deve ser impressa somente em um recibo de cartão." />
+		<caracter valor="f" descricao="Imprime a identificação do veículo isento." />
+		<caracter valor="F" descricao="Imprime o valor do saldo do cartão Visa Vale Pedágio." />		
+		<caracter valor="Gxxx" descricao="Imprime a linha se corresponder ao meio de pagamento xxx (violador = 255)." />
+		<caracter valor="h" descricao="Imprime em código de barras, o código 1 do voucher de Violações e Não Pagantes." />
+		<caracter valor="H" descricao="Imprime a hora da impressão do recibo ou voucher." />		
+		<caracter valor="i" descricao="Imprime em código de barras, o código 2 do voucher de Violações e Não Pagantes." />
+		<caracter valor="I" descricao="Imprime a mensagem que está configurada para o IT mostrar após a confirmação da classificação." />
+		<caracter valor="k" descricao="Imprime o código do coletor da sangria." />
+		<caracter valor="L" descricao="Imprime a validade do cartão." />
+		<caracter valor="M" descricao="Imprime o nome do usuário do cartão." />
+		<caracter valor="n" descricao="Imprime o número do cartão." />
+		<caracter valor="N" descricao="Omite a impressão da linha de configuração que ele estiver. Neutraliza qualquer outro comando configurado na linha de configuração que estiver." />
+		<caracter valor="o" descricao="Imprime o número da ocorrência." />
+		<caracter valor="O" descricao="Imprime o código do arrecadador." />		
+		<caracter valor="q" descricao="Imprime o valor da transação pago através do cartão Visa Vale Pedágio, Smartcard Paraná ou RFID." />
+		<caracter valor="Q" descricao="Indica que esta linha de configuração deve ser impressa somente em um recibo de Cartão Visa Vale Pedágio." />
+		<caracter valor="r" descricao="Indica que esta linha será impressa somente para Declarações e Sangrias. Deve ser usada somente na configuração do cabeçalho." />		
+		<caracter valor="R" descricao="Indica que esta linha de configuração deve ser impressa somente em um recibo." />
+		<caracter valor="s" descricao="Indica a string do voucher, não tem função na impressão de um recibo." />
+		<caracter valor="S" descricao="Imprime o sentido da pista." />		
+		<caracter valor="t" descricao="Imprime o código do Isento de Retorno." />
+		<caracter valor="u" descricao="Imprime o valor em cheque da sangria." />
+		<caracter valor="v" descricao="Imprime o valor do recibo." />		
+		<caracter valor="V" descricao="Indica que esta linha de configuração deve ser impressa somente em um voucher." />
+		<caracter valor="x" descricao="Imprime o número do cartão Smartcard." />
+		<caracter valor="X" descricao="Indica que esta linha de configuração deve ser impressa somente em um comprovante de sangria." />		
+		<caracter valor="w" descricao="Imprime o valor em dinheiro da sangria." />
+		<caracter valor="W" descricao="Indica que esta linha de configuração deve ser impressa somente em um recibo de Carga de um Cartão Smartcard Paraná ou RFID." />
+		<caracter valor="y" descricao="Imprime o tipo de cartão Smartcard Paraná." />		
+		<caracter valor="Z" descricao="Indica que esta linha de configuração deve ser impressa somente em um recibo de Cartão Smartcard Paraná." />
+		<caracter valor="7" descricao="Pula linhas na configuração do voucher de Violações e Não Pagantes." />		
+	</caracteresEspeciais>
+</Compsis>
