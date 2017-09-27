@@ -61,12 +61,13 @@
 
   <!-- deployers -->
   <bean name="WSDescriptorDeployer" class="org.jboss.webservices.integration.deployers.WSDescriptorDeployer">
-    <incallback method="setProcessor"/>
+    <!-- incallback method="setProcessor"/ -->
+    <property name="processor"><inject bean="WSDescriptorProcessor"/></property>
     <incallback method="setParser"/>
   </bean>
 
   <bean name="JMSDescriptorDeployer" class="org.jboss.webservices.integration.deployers.JMSDescriptorDeployer">
-    <incallback method="setProcessor"/>
+    <property name="processor"><inject bean="CXFJMSDescriptorProcessor"/></property>
     <incallback method="setParser"/>
   </bean>
 
